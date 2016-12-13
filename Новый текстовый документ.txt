@@ -1,0 +1,4 @@
+1. Скачать QT
+2. Подключить QT к Visual Studio с помощью
+http://download.qt.io/official_releases/vsaddin/qt-vs-tools-msvc2015-2.0.0.vsix
+3. Запустить проект
