@@ -1,0 +1,4 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (dz_evgeni.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  PainterWindow.cpp
+  dz_evgeni.vcxproj -> C:\Users\Панкрат\Desktop\git\Homework3sem\blokSchemeProject\x64\Debug\blokScheme.exe
+  dz_evgeni.vcxproj -> C:\Users\Панкрат\Desktop\git\Homework3sem\blokSchemeProject\x64\Debug\blokScheme.pdb (Full PDB)
