@@ -20,16 +20,17 @@ void Oscillogram::drawOscillogram(const QString& strS,const QString& strR,const 
 	ui.listWidget->clear();
 	trigger myTrigger;
 	myTrigger.setSR(strS.toStdString(), strR.toStdString());
-	myTrigger.setResult();
-	resultSimple(myTrigger);
 	if (flag==true) {
 		myTrigger.threadCount();
+		myTrigger.setThreadResult();
 		weightOut = 30;
 	}
 	else {
 		myTrigger.simpleCount();
+		myTrigger.setSimpleResult();
 		weightOut = weightIn;
 	}
+	resultSimple(myTrigger);
 	QSize minSize(650, 360);
 	mView = new QGraphicsView(this);
 	mView->setMinimumSize(minSize);
@@ -70,33 +71,39 @@ void Oscillogram::drawSignal(string& inputT,const int& weight)
 		mScene->addLine(line);
 		coord.first = coord.first + weight;
 		coord.second = coord.second + height;
+		mScene->addEllipse(coord.first, coord.second, 3, 3);
 	}
 	else {
 		QLineF line1(coord.first, coord.second - height, coord.first + weight, coord.second - height);
 		mScene->addLine(line1);
 		coord.first = coord.first + weight;
 		coord.second = coord.second - height;
+		mScene->addEllipse(coord.first, coord.second, 3, 3);
 	}
 	for (int i = 1; i < inputT.size(); i++) {
 		if (inputT[i - 1] == inputT[i]) {
 			QLineF line1(coord.first, coord.second, coord.first + weight, coord.second);
 			mScene->addLine(line1);
 			coord.first = coord.first + weight;
+			mScene->addEllipse(coord.first, coord.second, 3, 3);
 		}
 		else {
 			if (coord.second > startY) {
 				QLineF line2(coord.first, coord.second, coord.first , coord.second - 2 * height);
 				mScene->addLine(line2);
 				coord.second = coord.second - 2 * height;
+				mScene->addEllipse(coord.first, coord.second, 3, 3);
 			}
 			else {
 				QLineF line2(coord.first, coord.second, coord.first, coord.second + 2 * height);
 				mScene->addLine(line2);
 				coord.second = coord.second + 2 * height;
+				mScene->addEllipse(coord.first, coord.second, 3, 3);
 			}
 			QLineF line1(coord.first, coord.second, coord.first + weight, coord.second);
 			mScene->addLine(line1);
 			coord.first = coord.first + weight;
+			mScene->addEllipse(coord.first, coord.second, 3, 3);
 		}
 	}
 }

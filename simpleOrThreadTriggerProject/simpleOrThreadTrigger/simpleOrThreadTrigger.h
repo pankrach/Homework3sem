@@ -19,6 +19,8 @@ public:
 private:
     Ui::simpleOrThreadTriggerClass ui;
 	Oscillogram* mOsc;
+protected:
+	void closeEvent(QCloseEvent *);
 public slots:
 	void on_pushButton_clicked();
 signals:

@@ -25,6 +25,11 @@ void simpleOrThreadTrigger::on_pushButton_clicked()
 		mOsc->show();
 	}
 }
+void simpleOrThreadTrigger::closeEvent(QCloseEvent *event)
+{
+	QMainWindow::closeEvent(event);
+	mOsc->close();
+}
 void simpleOrThreadTrigger::checkSize(string& strS, string& strR)
 {
 	if (strS.size() != strR.size())

@@ -1,5 +1,7 @@
 #include <vector>
 #include<thread>
+#include<memory.h>
+#include <atomic>
 using namespace std;
 class trigger
 {
@@ -9,16 +11,16 @@ public:
 	void setSR(string, string);
 	void threadCount();
 	void simpleCount();
-	void setResult();
-	//void setThreadResult();
+	void setSimpleResult();
+	void setThreadResult();
 	void setVarS(int);
 	void setVarR(int);
 	char countQ();
 	char count_Q();
-	char varS;
-	char varR;
-	char Q;
-	char _Q;
+	atomic<char> varS;
+	atomic<char> varR;
+	atomic<char> Q;
+	atomic<char> _Q;
 	int size;
 	bool finished = false;
 	vector<char> SRQ = {'S', 'R', 'Q', '_'};
