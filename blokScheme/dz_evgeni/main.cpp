@@ -1,4 +1,4 @@
-#include "WelcomeWindow.h"
+#include "WelcomeWindow.h" 
 #include <QtWidgets/QApplication>
 
 #include "Pancer.h"
